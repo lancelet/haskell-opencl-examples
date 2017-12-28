@@ -3,5 +3,4 @@ packages:
 - .
 extra-deps:
 - OpenCL-1.0.3.4
-- git: git@github.com:acowley/CLUtil
-  commit: c5342bed65869b53009f360f467da196137b8658
+- lib/CLUtil

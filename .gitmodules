@@ -1,0 +1,3 @@
+[submodule "lib/CLUtil"]
+	path = lib/CLUtil
+	url = git@github.com:acowley/CLUtil
