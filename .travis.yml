@@ -1,0 +1,35 @@
+sudo: false
+language: generic
+
+cache:
+  directories:
+    - $HOME/.ghc
+    - $HOME/.cabal
+    - $HOME/.stack
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode9.2
+
+before_install:
+  - export PATH=$HOME/.local/bin:$PATH
+  - mkdir -p $HOME/.local/bin
+  - |
+    # Install Haskell Stack
+    if [ `uname` = "Darwin" ]; then
+      travis_retry curl --insecure -L https://www.stackage.org/stack/osx-x86_64 | tar xz --strip-components=1 --include '*/stack' -C $HOME/.local/bin
+    fi
+
+    # Use an S3 mirror of Hackage
+    mkdir -p $HOME/.cabal
+    echo 'remote-repo: hackage.haskell.org:http://hackage.fpcomplete.com/' > $HOME/.cabal/config
+    echo 'remote-repo-cache: $HOME/.cabal/packages' >> $HOME/.cabal/config
+
+install:
+  - |
+    stack --no-terminal --install-ghc test --bench --only-dependencies
+
+script:
+  - |
+    stack --no-terminal test --bench --no-run-benchmarks
