@@ -18,7 +18,6 @@ dependencies:
 - CLUtil
 - language-c-quote
 - mainland-pretty
-- mtl
 - OpenCL
 - vector
 
