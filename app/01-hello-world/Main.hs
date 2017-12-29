@@ -9,6 +9,9 @@ Stability   : experimental
 Portability : POSIX + OpenCL
 
 This is a Hello World OpenCL example that stores buffer data in vectors.
+
+More information in this blog post:
+  https://lancelet.github.io/posts/2017-12-26-opencl-helloworld.html
 -}
 
 module Main where
