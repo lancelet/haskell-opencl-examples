@@ -1,1 +1,2 @@
-# opencl-examples
+# haskell-opencl-examples
+
